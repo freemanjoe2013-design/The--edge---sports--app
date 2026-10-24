@@ -36,6 +36,63 @@ export default function App() {
   };
 
   const currentData = comprehensiveData[selectedSport];
+  if (onboardingStep === 'welcome') {
+    return (
+      <div className="min-h-screen bg-slate-950 text-slate-100 p-6 flex flex-col justify-between items-center text-center">
+        <div className="w-full max-w-md mx-auto space-y-6 pt-6">
+          <img src="/Screenshot_20261023-235030.png" alt="Edge Sports Insight" className="w-full rounded-xl shadow-2xl border border-amber-400/30" />
+          <h1 className="text-3xl font-black tracking-wider text-amber-400">THE EDGE Pro</h1>
+          <p className="text-sm text-slate-300">Advanced AI Sports Analytics & Real-Time Value Engine</p>
+          
+          <div className="flex justify-center gap-3 py-2">
+            {['EN', 'ES', 'FR'].map((lang) => (
+              <button
+                key={lang}
+                onClick={() => setSelectedLanguage(lang)}
+                className={`px-4 py-2 rounded-lg font-bold text-xs transition-all ${
+                  selectedLanguage === lang ? 'bg-amber-400 text-slate-950 shadow-lg shadow-amber-400/20' : 'bg-slate-900 text-slate-400 border border-slate-800'
+                }`}
+              >
+                {lang}
+              </button>
+            ))}
+          </div>
+
+          <button 
+            onClick={() => setOnboardingStep('disclaimer')}
+            className="w-full py-4 bg-amber-400 text-slate-950 font-black rounded-xl shadow-lg shadow-amber-400/20 uppercase tracking-widest mt-6"
+          >
+            Enter Terminal
+          </button>
+        </div>
+      </div>
+    );
+  }
+
+  if (onboardingStep === 'disclaimer') {
+    return (
+      <div className="min-h-screen bg-slate-950 text-slate-100 p-6 flex flex-col justify-between items-center text-center">
+        <div className="w-full max-w-md mx-auto space-y-6 pt-10">
+          <div className="p-6 bg-slate-900/80 border border-amber-400/30 rounded-2xl shadow-xl space-y-4">
+            <h2 className="text-xl font-black text-amber-400 uppercase tracking-wider">Attention & Strategy Notice</h2>
+            <p className="text-xs text-slate-300 leading-relaxed text-left">
+              Statistical modeling proves that the mathematical probability of hitting your target significantly increases with fewer legs. **The fewer, the better.** Stick to disciplined 1, 2, and 3-pick strategies to maximize your long-term edge.
+            </p>
+            <p className="text-[10px] text-slate-500 uppercase tracking-widest pt-2">
+              For analytical insights and informational purposes only. Play responsibly.
+            </p>
+          </div>
+
+          <button 
+            onClick={() => setOnboardingStep('app')}
+            className="w-full py-4 bg-amber-400 text-slate-950 font-black rounded-xl shadow-lg shadow-amber-400/20 uppercase tracking-widest"
+          >
+            I Understand & Agree
+          </button>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen bg-slate-950 text-slate-100 p-4 sm:p-6 font-sans">
