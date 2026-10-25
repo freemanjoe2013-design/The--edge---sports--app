@@ -40,7 +40,7 @@ export default function App() {
     return (
       <div className="min-h-screen bg-slate-950 text-slate-100 p-6 flex flex-col justify-between items-center text-center">
         <div className="w-full max-w-md mx-auto space-y-6 pt-6">
-          <img src="/Screenshot_20261023-235030.png" alt="Edge Sports Insight" className="w-full rounded-xl shadow-2xl border border-amber-400/30" />
+          <img src="Screenshot_20261023-235030.png" alt="Edge Sports Insight" className="w-full rounded-xl shadow-2xl border border-amber-400/30" />
           <h1 className="text-3xl font-black tracking-wider text-amber-400">THE EDGE Pro</h1>
           <p className="text-sm text-slate-300">Advanced AI Sports Analytics & Real-Time Value Engine</p>
           
